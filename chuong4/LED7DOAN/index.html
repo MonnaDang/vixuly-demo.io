@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LED 7 ĐOẠN</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- preloader -->
+    <div id="preloader">
+        <div class="spinner">
+          <div class="rect1"></div>
+          <div class="rect2"></div>
+          <div class="rect3"></div>
+          <div class="rect4"></div>
+        </div>
+    </div>
+    
+    <!-- nav_bar -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="nav-branding">Monna</a>
+            <ul class="nav-menu">
+                <li class="item">
+                    <a href="#" class="link"><i class="fa-solid fa-house fa-2x"></i></a>
+                </li >
+                <li class="item">
+                    <a href="#" class="link"><i class="fa-brands fa-youtube fa-2x"></i></a>
+                </li>
+                <li class="item">
+                    <a href="#" class="link"><i class="fa-brands fa-square-facebook fa-2x"></i></a>
+                </li>
+                <li class="item">
+                    <a href="#" class="link"><i class="fa-solid fa-address-card fa-2x"></i></a>
+                </li>
+                <li class="item">
+                    <a href="#" class="link">About </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+    <!-- nav_bar -->
+
+    <!-- CONTENT -->
+    <H1>
+        GIAO TIẾP NGOẠI VI<BR>
+        LED 7 ĐOẠN
+    </H1>
+    <div class="img-container">
+        <img class="pic" src="pic\led7doan.jpg" alt="">
+    </div>
+    <div class="container">
+        <ol class="oList" type="1">
+            <li class="title">ĐẾM TỪ 0-9 HIỂN THỊ TRÊN LED 7 ĐOẠN</li>
+            <div class="sdnl-code-out">Sơ đồ nguyên lý</div>
+            <div class="img-container">
+                <img class="pic" src="pic\dem0-9.png" alt="">
+            </div>
+            <div class="sdnl-code-out">Code</div>
+            <div class="code-container">
+                <div class="code">
+                    <pre>
+<font color="red">#INCLUDE</font> <font color="#434f54">&lt;</font><font color="#000000">TV_16F887</font><font color="#434f54">.</font><font color="#000000">C</font><font color="#434f54">&gt;</font>
+<font color="blue">SIGNED</font> <font color="blue">INT8</font> <font color="#000000">DEM</font><font color="#000000">;</font>
+
+<font color="blue">VOID</font> <font color="#000000">MAIN</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font>
+&nbsp;&nbsp;<font color="#000000">SET_TRIS_D</font><font color="#000000">(</font><font color="#000000">0X00</font><font color="#000000">)</font><font color="#000000">;</font>
+&nbsp;&nbsp;<font color="blue">WHILE</font><font color="#000000">(</font><font color="#000000">TRUE</font><font color="#000000">)</font><font color="#000000">{</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">FOR</font><font color="#000000">(</font><font color="#000000">DEM</font><font color="#434f54">=</font><font color="#000000">0</font><font color="#000000">;</font><font color="#000000">DEM</font><font color="#434f54">&lt;</font><font color="#000000">16</font><font color="#000000">;</font><font color="#000000">DEM</font><font color="#434f54">++</font><font color="#000000">)</font><font color="#000000">{</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">OUTPUT_D</font><font color="#000000">(</font><font color="#000000">MA7DOAN</font><font color="#000000">[</font><font color="#000000">DEM</font><font color="#000000">]</font><font color="#000000">)</font><font color="#000000">;</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">DELAY_MS</font><font color="#000000">(</font><font color="#000000">200</font><font color="#000000">)</font><font color="#000000">;</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
+&nbsp;&nbsp;<font color="#000000">}</font>
+<font color="#000000">}</font>    
+                    </pre>
+                </div>
+            </div>
+            <div class="sdnl-code-out">Thư viện TV_16F887.C</div>
+            <div class="code-container">
+                <div class="code">
+                    <pre>
+<font color="red">#INCLUDE</font> <font color="#434f54">&lt;</font><font color="#000000">16F887</font><font color="#434f54">.</font><font color="#000000">H</font><font color="#434f54">&gt;</font>
+<font color="red">#FUSES</font> <font color="#000000">NOWDT</font><font color="#434f54">,</font><font color="#000000">PUT</font><font color="#434f54">,</font><font color="#000000">HS</font><font color="#434f54">,</font><font color="#000000">NOPROTECT</font><font color="#434f54">,</font><font color="#000000">NOLVP</font>
+<font color="red">#USE</font> <font color="#000000">DELAY</font><font color="#000000">(</font><font color="#000000">CLOCK</font><font color="#434f54">=</font><font color="#000000">20M</font><font color="#000000">)</font>
+
+<font color="blue">CONST</font> <font color="blue">UNSIGNED</font> <font color="blue">CHAR</font> <font color="#000000">MA7DOAN</font><font color="#000000">[</font><font color="#000000">16</font><font color="#000000">]</font> <font color="#434f54">=</font> <font color="#000000">{</font><font color="#000000">0XC0</font><font color="#434f54">,</font><font color="#000000">0XF9</font><font color="#434f54">,</font><font color="#000000">0XA4</font><font color="#434f54">,</font><font color="#000000">0XB0</font><font color="#434f54">,</font><font color="#000000">0X99</font><font color="#434f54">,</font><font color="#000000">0X92</font><font color="#434f54">,</font><font color="#000000">0X82</font><font color="#434f54">,</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">0XF8</font><font color="#434f54">,</font><font color="#000000">0X80</font><font color="#434f54">,</font><font color="#000000">0X90</font><font color="#434f54">,</font><font color="#000000">0X88</font><font color="#434f54">,</font><font color="#000000">0X83</font><font color="#434f54">,</font><font color="#000000">0XC6</font><font color="#434f54">,</font><font color="#000000">0XA1</font><font color="#434f54">,</font><font color="#000000">0X86</font><font color="#434f54">,</font><font color="#000000">0X8E</font><font color="#000000">}</font><font color="#000000">;</font>
+                    </pre>
+                </div>
+            </div>
+
+            <div class="sdnl-code-out">Output</div>
+            <div class="img-container"><img class="pic" src="pic\out_dem0-9.gif" alt=""></div>
+            
+
+
+
+
+            <li class="title">ĐẾM LÊN XUỐNG TỪ 0-99</li>
+            <div class="sdnl-code-out">Sơ đồ nguyên lý</div>
+            <div class="img-container">
+                <img class="pic" src="pic\denlenxuong0-99.png" alt="">
+            </div>
+            <div class="sdnl-code-out">Code</div>
+            <div class="code-container">
+                <div class="code">
+                    <pre>
+<font color="red">#INCLUDE</font> <font color="#434f54">&lt;</font><font color="#000000">TV_16F887</font><font color="#434f54">.</font><font color="#000000">C</font><font color="#434f54">&gt;</font>
+<font color="red">SIGNED</font> <font color="#000000">INT8</font> <font color="#000000">I</font><font color="#000000">;</font>
+
+<font color="blue">VOID</font> <font color="blue">MAIN</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font>
+&nbsp;&nbsp;<font color="#000000">SET_TRIS_D</font><font color="#000000">(</font><font color="#000000">0X00</font><font color="#000000">)</font><font color="#000000">;</font>
+&nbsp;&nbsp;<font color="#000000">SET_TRIS_B</font><font color="#000000">(</font><font color="#000000">0X00</font><font color="#000000">)</font><font color="#000000">;</font>
+&nbsp;&nbsp;
+&nbsp;&nbsp;<font color="blue">WHILE</font><font color="#000000">(</font><font color="#000000">TRUE</font><font color="#000000">)</font><font color="#000000">{</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">FOR</font><font color="#000000">(</font><font color="#000000">I</font> <font color="#434f54">=</font><font color="#000000">0</font><font color="#000000">;</font><font color="#000000">I</font><font color="#434f54">&lt;</font><font color="#000000">100</font><font color="#000000">;</font><font color="#000000">I</font><font color="#434f54">++</font><font color="#000000">)</font><font color="#000000">{</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">OUTPUT_D</font><font color="#000000">(</font><font color="#000000">MA7DOAN</font><font color="#000000">[</font><font color="#000000">I</font><font color="#434f54">%</font><font color="#000000">10</font><font color="#000000">]</font><font color="#000000">)</font><font color="#000000">;</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">IF</font><font color="#000000">(</font><font color="#000000">(</font><font color="#000000">I</font><font color="#434f54">&#47;</font><font color="#000000">10</font><font color="#000000">)</font><font color="#434f54">==</font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000">{</font><font color="#000000">OUTPUT_B</font><font color="#000000">(</font><font color="#000000">0XFF</font><font color="#000000">)</font><font color="#000000">;</font><font color="#000000">}</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">ELSE</font> <font color="#000000">OUTPUT_B</font><font color="#000000">(</font><font color="#000000">MA7DOAN</font><font color="#000000">[</font><font color="#000000">I</font><font color="#434f54">&#47;</font><font color="#000000">10</font><font color="#000000">]</font><font color="#000000">)</font><font color="#000000">;</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">DELAY_MS</font><font color="#000000">(</font><font color="#000000">80</font><font color="#000000">)</font><font color="#000000">;</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">FOR</font><font color="#000000">(</font><font color="#000000">I</font> <font color="#434f54">=</font> <font color="#000000">99</font><font color="#000000">;</font><font color="#000000">I</font><font color="#434f54">&gt;</font><font color="#000000">0</font><font color="#000000">;</font><font color="#000000">I</font><font color="#434f54">--</font><font color="#000000">)</font><font color="#000000">{</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">OUTPUT_D</font><font color="#000000">(</font><font color="#000000">MA7DOAN</font><font color="#000000">[</font><font color="#000000">I</font><font color="#434f54">%</font><font color="#000000">10</font><font color="#000000">]</font><font color="#000000">)</font><font color="#000000">;</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">IF</font><font color="#000000">(</font><font color="#000000">(</font><font color="#000000">I</font><font color="#434f54">&#47;</font><font color="#000000">10</font><font color="#000000">)</font><font color="#434f54">==</font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000">{</font><font color="#000000">OUTPUT_B</font><font color="#000000">(</font><font color="#000000">0XFF</font><font color="#000000">)</font><font color="#000000">;</font><font color="#000000">}</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">ELSE</font> <font color="#000000">OUTPUT_B</font><font color="#000000">(</font><font color="#000000">MA7DOAN</font><font color="#000000">[</font><font color="#000000">I</font><font color="#434f54">&#47;</font><font color="#000000">10</font><font color="#000000">]</font><font color="#000000">)</font><font color="#000000">;</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">DELAY_MS</font><font color="#000000">(</font><font color="#000000">80</font><font color="#000000">)</font><font color="#000000">;</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
+&nbsp;&nbsp;<font color="#000000">}</font>
+<font color="#000000">}</font>
+                </pre>
+            </div>
+        </div>
+            <div class="sdnl-code-out">Output</div>
+            <div class="img-container">
+                <img class="pic" src="pic\out0-99.gif" alt="">
+            </div>
+                
+            <li class="title">ĐẾM TỪ 0-99 TRÊN 2 LED 7 ĐOẠN BẰNG PHƯƠNG PHÁP QUÉT LED:</li>
+            <div class="sdnl-code-out">Sơ đồ nguyên lý</div>
+            <div class="img-container">
+                <img class="pic" src="pic\quetled.png" alt="">
+            </div>
+            <div class="sdnl-code-out">Code</div>
+            <div class="code-container">
+                <div class="code">
+                    <pre>
+<font color="red">#INCLUDE</font> <font color="#434f54">&lt;</font><font color="#000000">TV_16F887</font><font color="#434f54">.</font><font color="#000000">C</font><font color="#434f54">&gt;</font>
+<font color="blue">UNSIGNED</font> <font color="blue">INT8</font> <font color="#000000">DEM</font><font color="#434f54">,</font><font color="#000000">I</font><font color="#434f54">,</font><font color="#000000">CH</font><font color="#434f54">,</font><font color="#000000">DV</font><font color="#000000">;</font>
+
+<font color="blue">VOID</font> <font color="#000000">GM_7DOAN</font><font color="#000000">(</font><font color="#000000">UNSIGNED</font> <font color="#000000">INT</font> <font color="#000000">X</font><font color="#000000">)</font><font color="#000000">{</font>
+&nbsp;&nbsp;<font color="#000000">DV</font> <font color="#434f54">=</font> <font color="#000000">MA7DOAN</font><font color="#000000">[</font><font color="#000000">X</font><font color="#434f54">%</font><font color="#000000">10</font><font color="#000000">]</font><font color="#000000">;</font>
+&nbsp;&nbsp;<font color="#000000">CH</font> <font color="#434f54">=</font> <font color="#000000">MA7DOAN</font><font color="#000000">[</font><font color="#000000">X</font><font color="#434f54">&#47;</font><font color="#000000">10</font><font color="#000000">]</font><font color="#000000">;</font>
+&nbsp;&nbsp;<font color="blue">IF</font><font color="#000000">(</font><font color="#000000">CH</font><font color="#434f54">==</font><font color="#000000">0XC0</font><font color="#000000">)</font><font color="#000000">CH</font><font color="#434f54">=</font><font color="#000000">0XFF</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+
+<font color="blue">VOID</font> <font color="#000000">HT_7DOAN</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font>
+&nbsp;&nbsp;<font color="#000000">FOR</font><font color="#000000">(</font><font color="#000000">I</font><font color="#434f54">=</font><font color="#000000">0</font><font color="#000000">;</font><font color="#000000">I</font><font color="#434f54">&lt;</font><font color="#000000">50</font><font color="#000000">;</font><font color="#000000">I</font><font color="#434f54">++</font><font color="#000000">)</font><font color="#000000">{</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">OUTPUT_D</font><font color="#000000">(</font><font color="#000000">DV</font><font color="#000000">)</font><font color="#000000">;</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">OUTPUT_LOW</font><font color="#000000">(</font><font color="#000000">PIN_E0</font><font color="#000000">)</font><font color="#000000">;</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">DELAY_MS</font><font color="#000000">(</font><font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">OUTPUT_HIGH</font><font color="#000000">(</font><font color="#000000">PIN_E0</font><font color="#000000">)</font><font color="#000000">;</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">OUTPUT_D</font><font color="#000000">(</font><font color="#000000">CH</font><font color="#000000">)</font><font color="#000000">;</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">OUTPUT_LOW</font><font color="#000000">(</font><font color="#000000">PIN_E1</font><font color="#000000">)</font><font color="#000000">;</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">DELAY_MS</font><font color="#000000">(</font><font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">OUTPUT_HIGH</font><font color="#000000">(</font><font color="#000000">PIN_E1</font><font color="#000000">)</font><font color="#000000">;</font>
+&nbsp;&nbsp;<font color="#000000">}</font>
+<font color="#000000">}</font>
+
+<font color="blue">VOID</font> <font color="#000000">MAIN</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font>
+&nbsp;&nbsp;<font color="#000000">SET_TRIS_D</font><font color="#000000">(</font><font color="#000000">0X00</font><font color="#000000">)</font><font color="#000000">;</font>
+&nbsp;&nbsp;<font color="#000000">SET_TRIS_E</font><font color="#000000">(</font><font color="#000000">0X00</font><font color="#000000">)</font><font color="#000000">;</font>
+&nbsp;&nbsp;
+&nbsp;&nbsp;<font color="blue">WHILE</font><font color="#000000">(</font><font color="#000000">TRUE</font><font color="#000000">)</font><font color="#000000">{</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">FOR</font><font color="#000000">(</font><font color="#000000">DEM</font><font color="#434f54">=</font><font color="#000000">0</font><font color="#000000">;</font><font color="#000000">DEM</font><font color="#434f54">&lt;</font><font color="#000000">100</font><font color="#000000">;</font><font color="#000000">DEM</font><font color="#434f54">++</font><font color="#000000">)</font><font color="#000000">{</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">GM_7DOAN</font><font color="#000000">(</font><font color="#000000">DEM</font><font color="#000000">)</font><font color="#000000">;</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">HT_7DOAN</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
+&nbsp;&nbsp;<font color="#000000">}</font>
+<font color="#000000">}</font>
+                    </pre>
+                </div>
+            </div>
+            <div class="sdnl-code-out">Output</div>
+            <div class="img-container">
+                <img class="pic" src="pic\out_quetled.gif" alt="">
+            </div>
+        </ol>
+    </div>
+
+
+    <div id="changepage">
+        <div class="row">
+            <a href="#" class="col-1">Trang Trước</a>
+            <a href="#" class="col-2">Trang Sau</a>
+        </div>
+    </div>
+    <div id="footer">
+        <p>
+            No venturing No gaining<br>
+            Let's defeat MCU with me 😂 
+        </p>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
